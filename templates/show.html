@@ -1,0 +1,34 @@
+{% extends 'starter-page.html' %}
+{% load static %}
+{% block body %}
+    <br><br><br><br><br>
+  <table class="table table-dark">
+  <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Date</th>
+      <th>Department</th>
+      <th>Doctor</th>
+      <th>Message</th>
+      <th>Action</th>
+  </tr>
+
+{% for y in appointment %}
+
+    <tr>
+        <td>{{ y.name }} </td>
+        <td>{{ y.email }}</td>
+        <td>{{ y.phone }}</td>
+        <td>{{ y.date }}</td>
+        <td>{{ y.department}}</td>
+        <td>{{ y.doctor }}</td>
+        <td>{{ y.message }}</td>
+         <td>
+             <a href="/edit/{{ y.id }}" class="btn btn-warning">EDIT</a>
+             <a href="/delete/{{ y.id }}" class="btn btn-danger">DELETE</a>
+         </td>
+    </tr>
+{% endfor %}
+</table>
+{% endblock %}
